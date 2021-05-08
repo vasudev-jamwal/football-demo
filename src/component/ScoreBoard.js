@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
+import useAuthMode from "../hooks/useAuthMode";
 
 const ScoreBoard = () => {
+  useAuthMode();
   const scoreA = useSelector((state) => state.score.TEAM_A_SCORE || 0);
   const scoreB = useSelector((state) => state.score.TEAM_B_SCORE || 0);
   const dispatch = useDispatch();
