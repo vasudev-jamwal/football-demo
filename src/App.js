@@ -1,37 +1,9 @@
 import { Provider, useDispatch, useSelector } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-
-const reducer = (state, action) => {
-  let newState = { ...state };
-  switch (action.type) {
-    case "GOAL_A":
-      newState = {
-        ...newState,
-        TEAM_A_SCORE: (parseInt(state.TEAM_A_SCORE) || 0) + 1,
-      };
-      break;
-    case "GOAL_B":
-      newState = {
-        ...newState,
-        TEAM_B_SCORE: (parseInt(state.TEAM_B_SCORE) || 0) + 1,
-      };
-      break;
-  }
-  return newState;
-};
-
-const logger = (store) => (next) => (action) => {
-  console.group("Action dispatched");
-  console.log("action", action);
-  console.log("OLD", store.getState());
-  next(action);
-  console.log("NEW", store.getState());
-  console.groupEnd();
-};
+import store from "./store/index";
 
 function App() {
   return (
-    <Provider store={createStore(reducer, applyMiddleware(logger))}>
+    <Provider store={store}>
       <div className="App">
         <ScoreBoard />
       </div>
@@ -40,8 +12,8 @@ function App() {
 }
 
 const ScoreBoard = () => {
-  const scoreA = useSelector((state) => state.TEAM_A_SCORE || 0);
-  const scoreB = useSelector((state) => state.TEAM_B_SCORE || 0);
+  const scoreA = useSelector((state) => state.score.TEAM_A_SCORE || 0);
+  const scoreB = useSelector((state) => state.score.TEAM_B_SCORE || 0);
   const dispatch = useDispatch();
   return (
     <>
