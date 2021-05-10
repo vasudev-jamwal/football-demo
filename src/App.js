@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import store from "./store/index";
 import ScoreBoard from "./component/ScoreBoard";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import Header from "./component/Header";
+import Header from "./component/header/Header";
 import Home from "./component/Home";
 import LoginDashboard from "./component/LoginDashboard";
 
