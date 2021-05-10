@@ -1,0 +1,51 @@
+.scoreboard {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.team-display {
+  display: grid;
+  height: 16rem;
+  width: 20rem;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: repeat(3, 1fr);
+  background: #dfdfdf;
+  border-radius: 1.5rem;
+
+  .teamname {
+    font-size: 2rem;
+  }
+
+  .score {
+    font-size: 1.5rem;
+    &:hover {
+      animation: bounce 0.5s;
+    }
+  }
+
+  button {
+    height: 2rem;
+    width: 6rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding: 0;
+    color: white;
+    background-color: #727272;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

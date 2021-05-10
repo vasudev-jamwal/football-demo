@@ -9,7 +9,7 @@ header nav {
 }
 
 .submenu > ul {
-  position: absolute;
+  position:  absolute;
   background: rgba(109, 82, 82, 0.144);
 }
 
